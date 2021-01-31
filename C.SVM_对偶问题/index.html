@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>C.SVM_对偶问题 - YShandon</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "C.SVM_\u5bf9\u5076\u95ee\u9898";
+    var mkdocs_page_input_path = "C.SVM_\u5bf9\u5076\u95ee\u9898.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> YShandon</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../0.%E5%89%8D%E8%A8%80/">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../0.%E5%89%8D%E8%A8%80/">0.前言</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../1.%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%A6%82%E8%A7%88/">1.机器学习概览</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../2.%E4%B8%80%E4%B8%AA%E5%AE%8C%E6%95%B4%E7%9A%84%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A1%B9%E7%9B%AE/">2.一个完整的机器学习项目</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../3.%E5%88%86%E7%B1%BB/">3.分类</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../4.%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B/">4.训练模型</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../5.%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/">5.支持向量机</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../6.%E5%86%B3%E7%AD%96%E6%A0%91/">6.决策树</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../7.%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0%E5%92%8C%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97/">7.集成学习和随机森林</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../8.%E9%99%8D%E7%BB%B4/">8.降维</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../9.%E5%90%AF%E5%8A%A8%E5%B9%B6%E8%BF%90%E8%A1%8C_TensorFlow/">9.启动并运行_TensorFlow</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../10.%E4%BA%BA%E5%B7%A5%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E4%BB%8B%E7%BB%8D/">10.人工神经网络介绍</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../11.%E8%AE%AD%E7%BB%83%E6%B7%B1%E5%B1%82%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">11.训练深层神经网络</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../12.%E8%AE%BE%E5%A4%87%E5%92%8C%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84%E5%88%86%E5%B8%83%E5%BC%8F_TensorFlow/">12.设备和服务器上的分布式_TensorFlow</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../13.%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">13.卷积神经网络</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../14.%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">14.循环神经网络</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../15.%E8%87%AA%E7%BC%96%E7%A0%81%E5%99%A8/">15.自编码器</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../16.%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/">16.强化学习</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">C.SVM_对偶问题</a>
+    <ul class="current">
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../D.%E8%87%AA%E5%8A%A8%E5%BE%AE%E5%88%86/">D.自动微分</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">YShandon</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>C.SVM_对偶问题</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="csvm">附录 C、SVM 对偶问题</h1>
+<p>为了理解对偶性，你首先得理解拉格朗日乘子法。它基本思想是将一个有约束优化问题转化为一个无约束优化问题，其方法是将约束条件移动到目标函数中去。让我们看一个简单的例子，例如要找到合适的 <img alt="x" src="../images/tex-9dd4e461268c8034f5c8564e155c67a6.gif" /> 和 <img alt="y" src="../images/tex-415290769594460e2e485922904f345d.gif" /> 使得函数 <img alt="f(x, y) = x^2 + 2y" src="../images/tex-ec2b11c28f337d90d1a55c83bd738475.gif" /> 最小化，且其约束条件是一个等式约束：<img alt="3x + 2y + 1 = 0" src="../images/tex-08bc7e7224cfe0e39e04b69d4ed96298.gif" />。使用拉格朗日乘子法，我们首先定义一个函数，称为<strong>拉格朗日函数</strong>：<img alt="g(x, y, \alpha) = f(x, y) - \alpha(3x + 2y + 1)" src="../images/tex-e78acaa101dc94594e813eab3f01f428.gif" />。每个约束条件（在这个例子中只有一个）与新的变量（称为拉格朗日乘数）相乘，作为原目标函数的减数。</p>
+<p>Joseph-Louis Lagrange 大牛证明了如果 <img alt="(\bar{x}, \bar{y})" src="../images/tex-fe85b05b6cd2641c29612bc75a270208.gif" /> 是原约束优化问题的解，那么一定存在一个 <img alt="\bar{\alpha}" src="../images/tex-d9c29791dd3b792c7702ed2b7cf5ac40.gif" />，使得 <img alt="(\bar{x}, \bar{y}, \bar{\alpha})" src="../images/tex-ac2d6cc9cbad11acc20ba9f6dd0ef830.gif" /> 是拉格朗日函数的驻点（驻点指的是，在该点处，该函数所有的偏导数均为 0）。换句话说，我们可以计算拉格朗日函数 <img alt="g(x, y, \alpha) " src="../images/tex-c663f5d534674fc3f1b13074c6ae467b.gif" /> 关于 <img alt="x, y" src="../images/tex-2317793a8de61ab32c0f17adff9ea8d4.gif" /> 以及 <img alt="\alpha" src="../images/tex-7b7f9dbfea05c83784f8b85149852f08.gif" /> 的偏导数；然后我们可以找到那些偏导数均为 0 的驻点；最后原约束优化问题的解（如果存在）一定在这些驻点里面。</p>
+<p>在上述例子里，偏导数为</p>
+<p><img alt="\begin{align}\frac{\partial}{\partial x}g(x, y, \alpha) = 2x - 3\alpha \ \frac{\partial}{\partial y}g(x, y, \alpha) = 2 - 2\alpha \ \frac{\partial}{\partial \alpha}g(x, y, \alpha) = -3x - 2y - 1 \end{align}" src="../images/tex-96d88ee52e2a53c2350376ac3b1f3c30.gif" />  </p>
+<p>当这些偏导数均为 0 时，即 <img alt="2x − 3\alpha = 2 − 2\alpha = − 3x − 2y − 1 = 0" src="../images/tex-f74dbceea979dd6f7f807de601aaa240.gif" />，即可得 <img alt="x = \frac{3}{2}, y=-\frac{11}{4}, \alpha=1" src="../images/tex-9439cb7cb2e1c01f22745401287a0638.gif" />。这是唯一一个驻点，那它一定是原约束优化问题的解。然而，上述方法仅应用于等式约束，幸运的是，在某些正则性条件下，这种方法也可被一般化应用于不等式约束条件（例如不等式约束，<img alt="3x + 2y + 1 \geq 0" src="../images/tex-3b6ed467ca1ae09aeafe40f4b40251c7.gif" />）。如下公式 C-1 ，给了 SVM 硬间隔问题时的一般化拉格朗日函数。在该公式中，<img alt="\alpha^{(i)}" src="../images/tex-99f0c7b568236eb0a52bf15cbbfa342e.gif" /> 是 KKT 乘子，它必须大于或等于 0。</p>
+<blockquote>
+<p>译者注</p>
+<p><img alt="\alpha^{(i)}" src="../images/tex-99f0c7b568236eb0a52bf15cbbfa342e.gif" /> 是 <img alt="\geq0" src="../images/tex-e56717342e6431bdaa1f37c90f7ba7b3.gif" /> 抑或 <img alt="\leq0" src="../images/tex-825a000824ab58528de14389acafd231.gif" />，取决于拉格朗日函数的写法，以及原目标函数函数最大化抑或最小化。</p>
+</blockquote>
+<p><img alt="公式C-1" src="../images/Appendix/E_C-1.png" /></p>
+<p>就像拉格朗日乘子法，我们可以计算上述式子的偏导数、定位驻点。如果该原问题存在一个解，那它一定在驻点 <img alt="(\bar{w}, \bar{b}, \bar{\alpha})" src="../images/tex-e0569dbaecb2e5955e7ff0bad0749154.gif" /> 之中，且遵循 KKT 条件：</p>
+<ul>
+<li>遵循原问题的约束：<img alt="t^{(i)}((\bar{w})^T x^{(i)} +\bar{b}) \geq 1" src="../images/tex-5c71c1287e7a6b8fef19874c553b0cd4.gif" />, 对于 <img alt="i = 1, 2, ..., m" src="../images/tex-31f8dedd0a66fb646ef261c638243923.gif" /></li>
+<li>遵循现问题里的约束，即 <img alt="\bar{\alpha}^{(i)} \geq 0" src="../images/tex-61b00d67f0968d7be5bf4b7a3260b1f4.gif" /></li>
+<li><img alt="\bar{\alpha}^{(i)} = 0" src="../images/tex-9eaf40b81df456c80b338612aa1e6fb7.gif" /> 或者第<code>i</code>个约束条件是积极约束，意味着该等式成立：<img alt="t^{(i)}((\bar{w})^T x^{(i)} +\bar{b}) = 1" src="../images/tex-758714f96d598b4cbb8a7642bc3fb017.gif" />。这个条件叫做 互补松弛条件。它暗示了 <img alt="\bar{\alpha}^{(i)} = 0" src="../images/tex-9eaf40b81df456c80b338612aa1e6fb7.gif" /> 和第<code>i</code>个样本位于 SVM 间隔的边界上（该样本是支持向量）。</li>
+</ul>
+<p>注意 KKT 条件是确定驻点是否为原问题解的必要条件。在某些条件下，KKT 条件也是充分条件。幸运的是，SVM 优化问题碰巧满足这些条件，所以任何满足 KKT 条件的驻点保证是原问题的解。</p>
+<p>我们可以计算上述一般化拉格朗日函数关于<code>w</code>和<code>b</code>的偏导数，如公式 C-2。</p>
+<p><img alt="公式C-2" src="../images/Appendix/E_C-2.png" /></p>
+<p>令上述偏导数为 0，可得到公式 C-3。</p>
+<p><img alt="公式C-3" src="../images/Appendix/E_C-3.png" /></p>
+<p>如果我们把上述式子代入到一般化拉格朗日函数（公式 C-1）中，某些项会消失，从而得到公式 C-4，并称之为原问题的对偶形式。</p>
+<p><img alt="公式C-4" src="../images/Appendix/E_C-4.png" /></p>
+<p>现在该对偶形式的目标是找到合适的向量 <img alt="\bar{\alpha}" src="../images/tex-d9c29791dd3b792c7702ed2b7cf5ac40.gif" />，使得该函数 <img alt="L(w, b, \alpha)" src="../images/tex-8d9370145286bec564a001265dd85ff9.gif" /> 最小化，且 <img alt="\bar{\alpha}^{(i)} \geq 0" src="../images/tex-61b00d67f0968d7be5bf4b7a3260b1f4.gif" />。现在这个有约束优化问题正是我们苦苦追寻的对偶问题。</p>
+<p>一旦你找到了最优的 <img alt="\bar{\alpha}" src="../images/tex-d9c29791dd3b792c7702ed2b7cf5ac40.gif" />，你可以利用公式 C-3 第一行计算 <img alt="\bar{w}" src="../images/tex-28175dc40d9c53d6d2c186a7817cf866.gif" />。为了计算 <img alt="\bar{b}" src="../images/tex-222e2caf9c7b49d3432466e360eceba6.gif" />，你可以使用支持向量的已知条件 <img alt="t^{(i)}((\bar{w})^T x^{(i)} +\bar{b}) = 1" src="../images/tex-758714f96d598b4cbb8a7642bc3fb017.gif" />，当第 k 个样本是支持向量时（即它对应的 <img alt="\alpha_k &gt; 0" src="../images/tex-fe658058e9257029aa88bc89b34348de.gif" />），此时使用它计算 <img alt="\bar{b} =1-t^{(k)}((\bar{w})^T . x^{(k)}) " src="../images/tex-75080a1229e54394d1c6d95b9e542eaa.gif" />。对了，我们更喜欢利用所有支持向量计算一个平均值，以获得更稳定和更准确的结果，如公式 C-5。</p>
+<p><img alt="公式C-5" src="../images/Appendix/E_C-5.png" /></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../D.%E8%87%AA%E5%8A%A8%E5%BE%AE%E5%88%86/" class="btn btn-neutral float-right" title="D.自动微分">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../16.%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" class="btn btn-neutral" title="16.强化学习"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../16.%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../D.%E8%87%AA%E5%8A%A8%E5%BE%AE%E5%88%86/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
